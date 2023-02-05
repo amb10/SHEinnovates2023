@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="banner"><img src="{{ user_image }}"></div>
-    
+    <div id="add_delete">
     <div class="dropdown">
         <span>Add an Item</span>
         <div class="dropdown-content">
@@ -49,9 +49,9 @@
         </div>
     </div>
 
-    <div class="dropdown">
+    <div class="delete">
         <span>Delete an Item</span>
-        <div class="dropdown-content">
+        <div class="delete-content">
             <form method = "POST">
                 <p>
                     Item to Delete:
@@ -62,6 +62,7 @@
                 </p>
             </form>
         </div>
+    </div>
     </div>
 
     <div class="sort">
@@ -75,19 +76,17 @@
 
 
     <table>
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Quantity</td>
-                <td>Expiration Date</td>
-                <td>Expired</td>
-                <td>GF</td>
-                <td>DF</td>
-                <td>NF</td>
-                <td>V</td>
-                <td>VG</td>
-            </tr>
-        </thead>
+          <tr>
+              <td>Name</td>
+              <td>Quantity</td>
+              <td>Expiration Date</td>
+              <td>Expired</td>
+              <td>GF</td>
+              <td>DF</td>
+              <td>NF</td>
+              <td>V</td>
+              <td>VG</td>
+          </tr>
         <tbody>
             {%for object in object_list%}
             <tr>
