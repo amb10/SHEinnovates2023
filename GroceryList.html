@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- <ul>
+      <thead>
+          <tr>
+              <th colspan="2">GROCERY LIST</th>
+          </tr>
+      </thead>
+      <tbody>
+          {%for object in object_list%}
+          <tr>
+              <td>{{object.name}}</td>
+              <td>{{object.inventory}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </ul> -->
+    <p>
+      LIST
+      <ul>Hi</ul>
+      {% for item in object_list%}
+      <ul>
+        {{item}}
+      </ul>
+      {%endfor%}
+    </p>
+
+    <!-- syntax for button or together stuff -->
+    <form method = "POST">
+      <p>
+          Add Item:
+          <input type = "Add" name = "Add Item" />
+      </p>
+
+    </form>
+    <!-- deleting -->
+    <form method = "POST">
+        <p>
+            Delete Item:
+            <input type = "Delete" name = "Delete Item" />
+        </p>
+    </form>
