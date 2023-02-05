@@ -11,3 +11,6 @@
 **Nhu Nguyen** is a sophomore Computer Science major with a minor in Vietnamese at the University of Pittsburgh.  While having experience from a personal project featuring a translation app, Nhu is competing in SheInnovates as her first hackaton.  Nhu volunteers at the Pitt Pantry and has recently become a shift leader.
 
 **Alexandra Butler** is a sophomore Computer Science major with a minor in Sociology at the University of Pittsburgh.  Alex brings years of customer service to SheInnovates as her first hackathon.  Alex also previously volunteered at the First United Methodist Church Food Bank (Irwin) and currently volunteers at the Pitt Pantry.
+
+
+*Note: This folder is incomplete, you need to create a main folder through flask and activate the virtual environment*
