@@ -1,0 +1,42 @@
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  background-color:black;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:30px 10%;
+}
+
+.nav_bar {
+  display:nav_bar;
+  margin:0 auto;
+}
+
+ul#nav_links {
+  min-width:696px;
+  list-style:none;
+  padding-top:20px;
+}
+
+ul#horizontal-list li {
+  display:inline;
+}
+
+/* .nav__links{
+  list-style: none;
+}
+
+.nav__links li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a{
+  transition: all 0.3s ease 0s;
+} */
+
