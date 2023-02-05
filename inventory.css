@@ -1,4 +1,3 @@
-
 * {
   font-family: "Optima";
   box-sizing: border-box;
@@ -6,11 +5,50 @@
   padding: 0;
 }
 
+header {
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30%;
+  background-color: #E3DBD8;
+}
+
+#nav-bar {
+  list-style: none;
+  background-color: #E3DBD8;
+}
+
+#nav-bar li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+#nav-bar li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-bar li a:hover {
+  color: #7e4d4e
+}
+
+#nav-bar a:hover {
+  background-color: darkgrey; 
+}
+
+	/* formats the links on the horizontal menu bar*/
+#nav-bar a {
+  color: #583629;
+  background-color: #E3DBD8;
+}
+
 body {
   background-color: #FFF2F0;
 }
 
 .dropdown {
+  color: #583629;
+  font-weight: bolder;
   position: relative;
   display: inline-block;
   width: 40%;
@@ -29,11 +67,14 @@ body {
 }
 
 #add_delete {
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
 }
 
 .delete {
+  color: #583629;
+  font-weight: bold;
   position: relative;
   display: inline-block;
   width: 40%;
@@ -66,7 +107,8 @@ body {
   text-align :center;
 }
 
-table {
+.items {
+  text-align: center;
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 1.1em;
@@ -74,4 +116,14 @@ table {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.items td
+{
+  padding: 12px 15px;
+}
+
+.items tr
+{
+  border-bottom: 1px solid #dddddd;
 }

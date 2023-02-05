@@ -2,9 +2,22 @@
 <html>
   <head>
     <link rel="stylesheet" href="../static/inventory.css">
+    <div class="banner"><img src="{{ user_image }}"></div>
   </head>
   <body>
-    <div class="banner"><img src="{{ user_image }}"></div>
+
+    <header> 
+        <nav>
+            <div id="nav-bar">
+                <li><a href="#banner">Home</a></li>
+                <li><a href="/inventory">Inventory</a></li>
+                <li><a href="/GroceryList">Grocery List</a></li>
+                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="recipe.html">Recipe</a></li>
+            </div>
+        </nav>
+    </header>
+
     <div id="add_delete">
     <div class="dropdown">
         <span>Add an Item</span>
@@ -75,62 +88,62 @@
 
 
 
-    <table>
+    <table class="items" border=2 style="height:100%;width:100%;">
           <tr>
-              <td>Name</td>
-              <td>Quantity</td>
-              <td>Expiration Date</td>
-              <td>Expired</td>
-              <td>GF</td>
-              <td>DF</td>
-              <td>NF</td>
-              <td>V</td>
-              <td>VG</td>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Expiration Date</th>
+              <th>Expired</th>
+              <th>GF</th>
+              <th>DF</th>
+              <th>NF</th>
+              <th>V</th>
+              <th>VG</th>
           </tr>
         <tbody>
-            {%for object in object_list%}
-            <tr>
-                <td>{{object.name}}</td>
-                <td>{{object.inventory}}</td>
-                <td>{{object.expiration[0]}}-{{object.expiration[1]}}-{{object.expiration[2]}}</td>
-                <td>{{object.expired}}</td>
-                
-                <!-- Gluten Free -->
-                {% if object.glutenFree == "True" %}
-                <td>Yes</td>
-                {% else %}
-                <td>No</td>
-                {% endif %}
+          {%for object in object_list%}
+          <tr>
+              <td>{{object.get_name()}}</td>
+              <td>{{object.get_inventory()}}</td>
+              <td>{{object.get_expiration()[0]}}-{{object.get_expiration()[1]}}-{{object.get_expiration()[2]}}</td>
+              <td bgcolor="red">{{object.is_expired()}}</td>
+              
+              <!-- Gluten Free -->
+              {% if (object.get_glutenFree()) == "True" %}
+              <td>Yes</td>
+              {% else %}
+              <td>No</td>
+              {% endif %}
 
-                <!-- Dairy Free -->
-                {% if object.dairyFree == "True" %}
-                <td>Yes</td>
-                {% else %}
-                <td>No</td>
-                {% endif %}
+              <!-- Dairy Free -->
+              {% if (object.get_dairyFree()) == "True" %}
+              <td>Yes</td>
+              {% else %}
+              <td>No</td>
+              {% endif %}
 
-                <!-- Nut Free -->
-                {% if object.nutFree == "True" %}
-                <td>Yes</td>
-                {% else %}
-                <td>No</td>
-                {% endif %}
+              <!-- Nut Free -->
+              {% if (object.get_nutFree()) == "True" %}
+              <td>Yes</td>
+              {% else %}
+              <td>No</td>
+              {% endif %}
 
-                <!-- Vegan -->
-                {% if object.vegan == "True" %}
-                <td>Yes</td>
-                {% else %}
-                <td>No</td>
-                {% endif %}
+              <!-- Vegan -->
+              {% if (object.get_vegan()) == "True" %}
+              <td>Yes</td>
+              {% else %}
+              <td>No</td>
+              {% endif %}
 
-                <!-- Vegetarian -->
-                {% if object.vegetarian == "True" %}
-                <td>Yes</td>
-                {% else %}
-                <td>No</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
+              <!-- Vegetarian -->
+              {% if (object.get_vegetarian()) == "True" %}
+              <td>Yes</td>
+              {% else %}
+              <td>No</td>
+              {% endif %}
+          </tr>
+          {% endfor %}
         </tbody>
     </table>
   </body>
