@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from datetime import date
 
 class GroceryList:
-    #intializes a list of FoodItems that does NOT accept duplicates
+    #intializes a list of String food items
     def __init__(self):
         self.grocery_list = []
 
@@ -29,7 +29,7 @@ class GroceryList:
 
     #accepts String items as parameters
     #public method that checks conditions
-    def cross_off(item):
+    def cross_off(self, item):
         #returns from function if list is empty
         if (len(self.grocery_list) == 0):
             return
@@ -78,7 +78,12 @@ def Grocery():
             print(grocery_unordered)
 
         elif request.form.__contains__("Delete Item"):
-            #will be added to
+            deleted_item = request.form.get("Delete Item")
+            newItem.cross_off(deleted_item)
+
+            if deleted_item in grocery_unordered:
+                grocery_unordered.pop(grocery_unordered.index(deleted_item))
+            print(grocery_unordered)
 
     
     # Loading the page
