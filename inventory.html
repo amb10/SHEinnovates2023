@@ -1,68 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="../static/inventory.css">
   </head>
   <body>
-    <form method = "POST">
-        <p>
-            Item to Delete:
-            <input type = "Delete" name = "Delete" />
-            Quantity of Item:
-            <input type = "Quantity" name = "Quantity" />
-            <input type = "submit" value = "DELETE" />
-        </p>
-    </form>
+    <div class="banner"><img src="{{ user_image }}"></div>
+    
+    <div class="dropdown">
+        <span>Add an Item</span>
+        <div class="dropdown-content">
+            <form method = "POST">
+                <p>
+                    Item to Add
+                    <input type = "Name" name = "Name" required/>
+                </p>
+                <p>
+                    Expiration Date
+                    <input type = "Month" name = "Month" maxlength = 2 required/>
+                    <input type = "Day" name = "Day" maxlength = 2 required/>
+                    <input type = "Year" name = "Year" maxlength = 4 required/>
+                </p>
+                <p>
+                    Quantity
+                    <input type = "Quantity" name = "Quantity" required/>
+                </p>
+                <p>
+                    Gluten Free
+                    <input type = "GF" name = "GF" value = False  required/>
+                </p>
+                <p>
+                    Dairy Free
+                    <input type = "DF" name = "DF" value = False required/>
+                </p>
+                <p>
+                    Nut Free
+                    <input type = "NF" name = "NF" value = False required/>
+                </p>
+                <p>
+                    Vegan
+                    <input type = "Vegan" name = "Vegan" value = False required/>
+                </p>
+                <p>
+                    Vegetarian
+                    <input type = "Vegetarian" name = "Vegetarian" value = False pattern="[A-Za-z]{4,5}" title="Eight or more characters" required/>
+                </p>
+                <input type="submit" value="ADD"/>
+            </form>
+        </div>
+    </div>
 
-    <form method = "POST">
-        <p>
-            Item to Add
-            <input type = "Name" name = "Name" />
-        </p>
-        <p>
-            Expiration Date
-            <input type = "Month" name = "Month" />
-            <input type = "Day" name = "Day" />
-            <input type = "Year" name = "Year" />
-        </p>
-        <p>
-            Quantity
-            <input type = "Quantity" name = "Quantity" />
-        </p>
-        <p>
-            Gluten Free
-            <input type = "GF" name = "GF" value = No  />
-        </p>
-        <p>
-            Dairy Free
-            <input type = "DF" name = "DF" value = No />
-        </p>
-        <p>
-            Nut Free
-            <input type = "NF" name = "NF" value = No />
-        </p>
-        <p>
-            Vegan
-            <input type = "Vegan" name = "Vegan" value = No />
-        </p>
-        <p>
-            Vegetarian
-            <input type = "Vegetarian" name = "Vegetarian" value = No />
-        </p>
-        <input type="submit" value="ADD"/>
-    </form>
+    <div class="dropdown">
+        <span>Delete an Item</span>
+        <div class="dropdown-content">
+            <form method = "POST">
+                <p>
+                    Item to Delete:
+                    <input type = "Delete" name = "Delete" />
+                    Quantity of Item:
+                    <input type = "Quantity" name = "Quantity" />
+                    <input type = "submit" value = "DELETE" />
+                </p>
+            </form>
+        </div>
+    </div>
 
-    <form method = "POST">
-        <input type="submit" name = "SortDateDescending" value="Sort Date Descending" />
-        <input type="submit" name = "SortDateAscending" value="Sort Date Ascending" />
-        <input type="submit" name = "SortName" value="Sort Name" />
-    </form>
+    <div class="sort">
+        <form method = "POST">
+            <input type="submit" name = "SortDateDescending" value="Sort Date Descending" />
+            <input type="submit" name = "SortDateAscending" value="Sort Date Ascending" />
+            <input type="submit" name = "SortName" value="Sort Name" />
+        </form>
+    </div>
 
 
 
     <table>
         <thead>
             <tr>
-                <th colspan="2">The table header</th>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Expiration Date</td>
+                <td>Expired</td>
+                <td>GF</td>
+                <td>DF</td>
+                <td>NF</td>
+                <td>V</td>
+                <td>VG</td>
             </tr>
         </thead>
         <tbody>
@@ -70,12 +93,46 @@
             <tr>
                 <td>{{object.name}}</td>
                 <td>{{object.inventory}}</td>
+                <td>{{object.expiration[0]}}-{{object.expiration[1]}}-{{object.expiration[2]}}</td>
+                <td>{{object.expired}}</td>
+                
+                <!-- Gluten Free -->
+                {% if object.glutenFree == "True" %}
+                <td>Yes</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
+
+                <!-- Dairy Free -->
+                {% if object.dairyFree == "True" %}
+                <td>Yes</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
+
+                <!-- Nut Free -->
+                {% if object.nutFree == "True" %}
+                <td>Yes</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
+
+                <!-- Vegan -->
+                {% if object.vegan == "True" %}
+                <td>Yes</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
+
+                <!-- Vegetarian -->
+                {% if object.vegetarian == "True" %}
+                <td>Yes</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    
-
-
   </body>
 </html>

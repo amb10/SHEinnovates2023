@@ -1,7 +1,7 @@
 from FoodItem import FoodItem
-import test
 from flask import Flask, render_template, request
 from datetime import date
+import os
 
 
 # Flask stuff
@@ -15,9 +15,16 @@ addedItem = []
 today = [date.today().month, date.today().day, date.today().year]
 
 
+# Banner stuff
+picFolder = os.path.join('static','pics')
+app.config['UPLOAD_FOLDER'] = picFolder
+
 # Inventory Screen
 @app.route('/inventory', methods = ['POST', 'GET'])
 def inventory():
+
+    banner = os.path.join(app.config['UPLOAD_FOLDER'], 'banner.jpeg')
+
     print("DEBUG LINE: INVENTORY FUNCTION")
 
     if request.method == "POST":
@@ -79,7 +86,7 @@ def inventory():
         print("CALling debug print:")
         debugPrint()
 
-    return render_template("inventory.html", object_list = masterInventory)
+    return render_template("inventory.html", object_list = masterInventory, user_image = banner)
 
 
 # Updates the expiration of a FoodItem object
