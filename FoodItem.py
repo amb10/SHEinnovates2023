@@ -49,15 +49,19 @@ class FoodItem:
     #checks if item is expired by comparing year, month, then day
     def is_expired(self):
         #if expired before this year
-        if self.__expiration[2] < self.__today.year:
+        if int(self.__expiration[2]) < self.__today.year:
             return True
+        elif int(self.__expiration[2]) > self.__today.year:
+            return False
         else:
             #if expired before this month
-            if self.__expiration[0] < self.__today.month:
+            if int(self.__expiration[0]) < self.__today.month:
                 return True
+            elif int(self.__expiration[0]) > self.__today.month:
+                return False
             else:
                 #if expired before this day
-                if self.__expiration[1] < self.__today.day:
+                if int(self.__expiration[1]) < self.__today.day:
                     return True
                 else:
                     return False
@@ -116,3 +120,23 @@ class FoodItem:
     #returns intake data field
     def get_intake(self):
         return self.__intake
+
+    #returns gluten free
+    def get_glutenFree(self):
+        return self.__glutenFree
+
+    #returns dairy free
+    def get_dairyFree(self):
+        return self.__dairyFree
+
+    #returns nut free
+    def get_nutFree(self):
+        return self.__nutFree
+
+    #returns vegan
+    def get_vegan(self):
+        return self.__vegan
+
+    #returns vegetarian
+    def get_vegetarian(self):
+        return self.__vegetarian
