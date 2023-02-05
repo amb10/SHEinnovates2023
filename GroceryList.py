@@ -1,9 +1,10 @@
 import FoodItem
 from flask import Flask, render_template, request
 from datetime import date
+import os
 
 class GroceryList:
-    #intializes a list of String food items
+    #intializes a list of FoodItems that does NOT accept duplicates
     def __init__(self):
         self.grocery_list = []
 
@@ -64,8 +65,14 @@ app = Flask(__name__)
 
 grocery_unordered = []
 
+# Banner stuff
+picFolder = os.path.join('static','pics')
+app.config['UPLOAD_FOLDER'] = picFolder
+
 @app.route('/GroceryList', methods = ['POST', 'GET'])
 def Grocery():
+    banner = os.path.join(app.config['UPLOAD_FOLDER'], 'banner4.jpeg')
+
     newItem = GroceryList()
     print(request.form)
     if request.method == "POST":
@@ -90,6 +97,6 @@ def Grocery():
     if request.method == "GET":
         print("Page")
         print("Calling debug print:")
-    return render_template('GroceryList.html', object_list = grocery_unordered)
+    return render_template('GroceryList.html', object_list = grocery_unordered, user_image = banner)
 
 app.run(host='localhost', port=5000)

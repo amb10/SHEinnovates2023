@@ -1,0 +1,71 @@
+* {
+    /* font-family: "Optima"; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* !!!!!!Banner and Nav Bar Standardization */
+  
+  .banner {
+    text-align: center;
+    object-fit: cover;
+  }
+  
+  header {
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30%;
+    background-color: #E3DBD8;
+  }
+  
+  #nav-bar {
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+    list-style: none;
+    background-color: #E3DBD8;
+  }
+  
+  #nav-bar li {
+    display: inline-block;
+    padding: 0px 20px;
+  }
+  
+  #nav-bar li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav-bar li a:hover {
+    color: #7e4d4e
+  }
+  
+  #nav-bar a:hover {
+    background-color: darkgrey; 
+  }
+  
+      /* formats the links on the horizontal menu bar*/
+  #nav-bar a {
+    color: #583629;
+    background-color: #E3DBD8;
+  }
+  
+  /* !!!!!!End of Banner and Nav Bar Standardization */
+
+  #func {
+    font-size: large;
+  }
+
+  #g_list {
+    margin-top: 30px;
+  }
+
+  #g_list li {
+    margin-left: 30px;
+    color: #583629;
+    font-size: large;
+  }
+
+  
