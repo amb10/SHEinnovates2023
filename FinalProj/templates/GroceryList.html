@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../static/grocerylist.css">
+    <div class="banner"><img src="{{ user_image }}"></div>
+
+
+    <nav>
+      <div id="nav-bar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/inventory">Inventory</a></li>
+          <li><a href="/GroceryList">Grocery List</a></li>
+          <li><a href="/inbox">Inbox</a></li>
+          <li><a href="recipe.html">Recipe</a></li>
+      </div>
+  </nav>
+  </head>
+  <body>
+
+    <!-- syntax for button or together stuff -->
+    <div class="func">
+      <form method = "POST">
+        <p>
+            Add Item:
+            <input type = "Add" name = "Add Item" />
+        </p>
+  
+      </form>
+      <!-- deleting -->
+      <form method = "POST">
+          <p>
+              Delete Item:
+              <input type = "Delete" name = "Delete Item" />
+          </p>
+      </form>
+    </div>
+    
+    <h3>GROCERY LIST</h3>
+"
+    <div class="g_list">
+
+      {% for item in object_list%}
+      <li>
+        {{item}}
+      </li>
+      {%endfor%}
+    </div>
+
+  </body>
+</html>

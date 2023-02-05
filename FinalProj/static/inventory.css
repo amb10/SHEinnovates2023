@@ -1,0 +1,131 @@
+* {
+  /* font-family: "Optima"; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* !!!!!!Banner and Nav Bar Standardization */
+
+.banner {
+  text-align: center;
+  object-fit: cover;
+}
+
+
+
+#nav-bar {
+  height: 40px;
+  padding-top: 10px;
+  text-align: center;
+  list-style: none;
+  background-color: #E3DBD8;
+}
+
+#nav-bar li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+#nav-bar li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-bar li a:hover {
+  color: #7e4d4e
+}
+
+#nav-bar a:hover {
+  background-color: darkgrey; 
+}
+
+    /* formats the links on the horizontal menu bar*/
+#nav-bar a {
+  color: #583629;
+  background-color: #E3DBD8;
+}
+
+/* !!!!!!End of Banner and Nav Bar Standardization */
+
+
+.dropdown {
+  color: #583629;
+  font-weight: bolder;
+  position: relative;
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+#add_delete {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  color: #583629;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  width: 40%;
+}
+
+.delete-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.delete:hover .delete-content {
+  display: block;
+}
+
+.sort {
+  margin-top: 30px;
+  width: 100%;
+  text-align :center;
+}
+.banner {
+  text-align :center;
+}
+
+.items {
+  text-align: center;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.1em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.items td
+{
+  padding: 12px 15px;
+}
+
+.items tr
+{
+  border-bottom: 1px solid #dddddd;
+}
